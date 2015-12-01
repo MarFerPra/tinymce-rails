@@ -29,6 +29,11 @@ module TinyMCE::Rails
           setTimeout(arguments.callee, 50);
         }
       })();
+      function tinymce_init(){
+        if (typeof tinyMCE != 'undefined') {
+          tinyMCE.init(#{tinymce_configuration(config, options).to_javascript.gsub(/^/, ' ' * 10).sub(/\A\s+/, "")});
+        }        
+      }
       JAVASCRIPT
     end
     
