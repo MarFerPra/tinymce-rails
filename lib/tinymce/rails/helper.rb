@@ -27,7 +27,7 @@ module TinyMCE::Rails
 
           var def_options = #{tinymce_configuration(config, options).to_javascript.gsub(/^/, ' ' * 10).sub(/\A\s+/, "")}
           def_options['setup'] = function(ed) {
-                  ed.on('change', function(e) {
+                  ed.on('keyup', function(e) {
                     if(typeof(editor_changed) !== 'undefined'){
                       editor_changed(ed, e)
                     }
@@ -43,7 +43,7 @@ module TinyMCE::Rails
         if (typeof tinyMCE != 'undefined') {
           var def_options = #{tinymce_configuration(config, options).to_javascript.gsub(/^/, ' ' * 10).sub(/\A\s+/, "")}
           def_options['setup'] = function(ed) {
-                  ed.on('change', function(e) {
+                  ed.on('keyup', function(e) {
                     if(typeof(editor_changed) !== 'undefined'){
                       editor_changed(ed, e)
                     }
